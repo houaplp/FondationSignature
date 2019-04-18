@@ -1,0 +1,58 @@
+<%- include('header'); -%>
+
+<form method="get" enctype="multipart/form-data" id="analyseur_triangle">
+    <div class="titre_param">
+        <h3>Type d'analyse</h3>
+    </div>
+    <ul id="ta_forme">
+        <li><input type="radio" id="ta_as" name="type_analyse"><label for="ta_as">Simple</label></li>
+        <li><input type="radio" id="ta_af" name="type_analyse"><label for="ta_af">Fichier</label></li>
+        <li><input type="radio" id="ta_ar" name="type_analyse"><label for="ta_ar">Répertoire</label></li>
+    </ul>
+    </div>
+    <div class="titre_param">
+        <h3>Options</h3>
+    </div>
+    <ul id="option_forme">
+        <li><label for="debut_analyse">Début (ms)</label><input type="number" id="debut_analyse" name="debut_analyse"
+                value="0"></li>
+        <li><label for="taille_analyse">Taille (ms)</label><input type="number" id="taille_analyse" name="taille_analyse"
+                value="2000"></li>
+        <li><label for="pas_analyse">Pas (ms)</label><input type="number" id="pas_analyse" name="pas_analyse" value="1000"></li>
+    </ul>
+    <div class="titre_param">
+        <h3>Upload</h3>
+    </div>
+    <ul id="file_select_and_validate">
+        <li><label for="fichier_analyse">Fichier à analyser</label><input type="file" name="fichier_analyse" id="fichier_analyse"></li>
+        <li>
+            <div id="analyse_t_valide">Valider</div>
+        </li>
+    </ul>
+</form>
+<div id="progression_info">
+    <ul id="progression_liste">
+        <h4>Progression</h4>
+        <li id="validate_data"></li>
+        <li id="preparation_fichier">Préparation du fichier : <span id="prep_progress"></span> %</li>
+        <li id="upload_fichier_info">Avancement du téléversement : <span id="tl_avancement"></span> / <span id="tl_taille"></span>Kio</li>
+        <li id="info_archive"></li>
+    </ul>
+
+    <!-- Animation de chargement durant l'exécution du programme d'analyse -->
+    <ul id="execution_prog_attente" class="point_animation">
+        <li class="point_1"></li>
+        <li class="point_2"></li>
+        <li class="point_3"></li>
+    </ul>
+    <!-- Animation d'attente de création de l'archive zip -->
+    <div id="zip_chargement">
+        <div id="zip_chargement_tourne"></div>
+    </div>
+    <div id="download_archive"></div>
+</div>
+
+<div id="cons_debug_zone">
+</div>
+
+<%- include('footer'); -%>
